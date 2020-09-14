@@ -8,8 +8,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_test/flutter_test.dart'
     show TestWidgetsFlutterBinding, throwsAssertionError;
 
-import 'package:flutter_advanced_networkimage/src/disk_cache.dart';
-import 'package:flutter_advanced_networkimage/src/utils.dart';
+import 'package:flutter_advanced_networkimage_without_svg/src/disk_cache.dart';
+import 'package:flutter_advanced_networkimage_without_svg/src/utils.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

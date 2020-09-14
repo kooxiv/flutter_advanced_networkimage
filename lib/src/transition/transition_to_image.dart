@@ -3,8 +3,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_advanced_networkimage/provider.dart';
-import 'package:flutter_advanced_networkimage/src/utils.dart';
+import 'package:flutter_advanced_networkimage_without_svg/provider.dart';
+import 'package:flutter_advanced_networkimage_without_svg/src/utils.dart';
 
 import 'raw_image.dart' show MyRawImage;
 

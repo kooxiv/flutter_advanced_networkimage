@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/painting.dart' show Offset;
 
-import 'package:flutter_advanced_networkimage/src/utils.dart';
+import 'package:flutter_advanced_networkimage_without_svg/src/utils.dart';
 
 void main() {
   group('Download Test', () {

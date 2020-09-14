@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
-import 'package:flutter_advanced_networkimage/src/utils.dart';
+import 'package:flutter_advanced_networkimage_without_svg/src/utils.dart';
 
 class ZoomableWidget extends StatefulWidget {
   ZoomableWidget({
