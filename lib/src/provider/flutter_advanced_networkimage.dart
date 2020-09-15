@@ -1,16 +1,15 @@
-import 'dart:io';
 import 'dart:async';
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui show Codec, hashValues;
 
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_advanced_networkimage_without_svg/src/disk_cache.dart';
 import 'package:flutter_advanced_networkimage_without_svg/src/utils.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
 typedef Future<Uint8List> _ImageProcessing(Uint8List data);
 
@@ -21,6 +20,8 @@ class AdvancedNetworkImage extends ImageProvider<AdvancedNetworkImage> {
     this.scale: 1.0,
     this.width,
     this.height,
+    this.cacheWidth,
+    this.cacheHeight,
     this.header,
     this.useDiskCache: false,
     this.retryLimit: 5,
@@ -60,6 +61,12 @@ class AdvancedNetworkImage extends ImageProvider<AdvancedNetworkImage> {
 
   /// The height the image should decode to and cache in momory.
   final int height;
+
+  /// The width the image should decode to and cache in memory.
+  final int cacheWidth;
+
+  /// The height the image should decode to and cache in momory.
+  final int cacheHeight;
 
   /// The HTTP headers that will be used with [http] to fetch image from network.
   final Map<String, String> header;
@@ -175,8 +182,8 @@ class AdvancedNetworkImage extends ImageProvider<AdvancedNetworkImage> {
           if (key.loadedCallback != null) key.loadedCallback();
           return decode(
             _diskCache,
-            cacheWidth: key.width,
-            cacheHeight: key.height,
+            cacheWidth: key.cacheWidth,
+            cacheHeight: key.cacheHeight,
           );
         }
       } catch (e) {
@@ -200,8 +207,8 @@ class AdvancedNetworkImage extends ImageProvider<AdvancedNetworkImage> {
         if (key.loadedCallback != null) key.loadedCallback();
         return decode(
           imageData,
-          cacheWidth: key.width,
-          cacheHeight: key.height,
+          cacheWidth: key.cacheWidth,
+          cacheHeight: key.cacheHeight,
         );
       }
     }
@@ -211,15 +218,15 @@ class AdvancedNetworkImage extends ImageProvider<AdvancedNetworkImage> {
       ByteData imageData = await rootBundle.load(key.fallbackAssetImage);
       return decode(
         imageData.buffer.asUint8List(),
-        cacheWidth: key.width,
-        cacheHeight: key.height,
+        cacheWidth: key.cacheWidth,
+        cacheHeight: key.cacheHeight,
       );
     }
     if (key.fallbackImage != null)
       return decode(
         key.fallbackImage,
-        cacheWidth: key.width,
-        cacheHeight: key.height,
+        cacheWidth: key.cacheWidth,
+        cacheHeight: key.cacheHeight,
       );
 
     return Future.error(StateError('Failed to load $url.'));

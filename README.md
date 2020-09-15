@@ -12,14 +12,20 @@ Now with zoomable widget and transition to image widget.
 
 ### Installation
 
-fork from [flutter_advanced_networkimage](https://pub.flutter-io.cn/packages/flutter_advanced_networkimage)
+fork from [flutter_advanced_networkimage](https://pub.flutter-io.cn/packages/flutter_advanced_networkimage),removed svg support.
+
 
 Add this to your pubspec.yaml (or create it):
 
 ```yaml
 dependencies:
-  flutter_advanced_networkimage_without_svg: any
+  flutter_advanced_networkimage_without_svg:
+    git:
+      url: "https://github.com/kooxiv/flutter_advanced_networkimage.git"
 ```
+
+
+
 
 Then run the flutter tooling:
 
